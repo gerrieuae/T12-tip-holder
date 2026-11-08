@@ -19,7 +19,7 @@ base_t,mm,1.6 mm,1.6,Floor thickness under the tip zone,false
 corner_r,mm,3 mm,3,Outer vertical corner radius,false
 foot_ch,mm,0.6 mm,0.6,45 deg chamfer round the box bottom edge (against elephant foot),false
 top_ch,mm,0.8 mm,0.8,45 deg chamfer round the box top outer edge and the front wall top,false
-lid_ch,mm,0.5 mm,0.5,45 deg chamfer on the lid's front and back top edges (the lid's bed side),false
+lid_ch,mm,0.5 mm,0.5,45 deg chamfer on the lid's front top edge and the pull tab,false
 lid_t,mm,2.5 mm,2.5,Lid thickness,false
 lid_land,mm,0.8 mm,0.8,Vertical land at the lid's long bottom edges before the 45 deg bevel (no knife edge),false
 lid_recess,mm,1 mm,1,Lid top sits this far below the box top,false
@@ -29,9 +29,18 @@ lid_c,mm,0.3 mm,0.3,Lid sliding clearance,false
 lid_engage,mm,2.3 mm,2.3,"Lid end tucks this far into the back wall (bottom edge), under a 45 deg lip",false
 tongue_l,mm,22 mm,22,Click tongue length,false
 slot_w,mm,1.2 mm,1.2,Width of the slots either side of the tongue,false
-click_r,mm,0.6 mm,0.6,Click bump radius (under the tongue),false
-click_notch_r,mm,click_r + 0.15 mm,0.75,Click notch radius in the front wall top,false
-ramp,mm,1 mm,1,"45 deg ramp on the front wall's inner top edge, lets the bump ride up",false
+click_r,mm,0.6 mm,0.6,Click ridge radius (on the front wall top),false
+click_notch_r,mm,click_r + 0.15 mm,0.75,Click groove radius under the tongue,false
+click_w,mm,6 mm,6,Click ridge length (X),false
+click_y,mm,wall/2 + 0.6 mm,2.6,Click ridge position from the box front,false
+chan_c,mm,0.3 mm,0.3,Side and top clearance of the relief channel under the lid that lets the ridge pass,false
+tab_l,mm,5 mm,5,"Pull tab: tongue extends this far past the box front, lift it to release the click",false
+tab_r,mm,2 mm,2,Pull tab corner radius,false
+nail_d,mm,0.5 mm,0.5,Nail groove depth across the top of the pull tab,false
+nail_r,mm,1 mm,1,Nail groove radius,false
+indent_r,mm,15 mm,15,Finger recess in the box front under the tab: radius,false
+indent_d,mm,1.2 mm,1.2,Finger recess depth into the front wall,false
+indent_h,mm,5 mm,5,Finger recess height below the lid underside,false
 scoop_r,mm,8 mm,8,Finger scoop radius across the bed,false
 scoop_d,mm,3 mm,3,Finger scoop depth below the bed top,false
 scoop_y,mm,35 mm,35,Finger scoop position from the connector end,false

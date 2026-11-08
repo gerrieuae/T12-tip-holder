@@ -166,7 +166,7 @@
    "params": {
     "name": "lid_ch",
     "expression": "0.5 mm",
-    "comment": "45 deg chamfer on the lid's front and back top edges (the lid's bed side)"
+    "comment": "45 deg chamfer on the lid's front top edge and the pull tab"
    }
   },
   {
@@ -246,7 +246,7 @@
    "params": {
     "name": "click_r",
     "expression": "0.6 mm",
-    "comment": "Click bump radius (under the tongue)"
+    "comment": "Click ridge radius (on the front wall top)"
    }
   },
   {
@@ -254,15 +254,87 @@
    "params": {
     "name": "click_notch_r",
     "expression": "click_r + 0.15 mm",
-    "comment": "Click notch radius in the front wall top"
+    "comment": "Click groove radius under the tongue"
    }
   },
   {
    "command": "parameters.add",
    "params": {
-    "name": "ramp",
+    "name": "click_w",
+    "expression": "6 mm",
+    "comment": "Click ridge length (X)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "click_y",
+    "expression": "wall/2 + 0.6 mm",
+    "comment": "Click ridge position from the box front"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "chan_c",
+    "expression": "0.3 mm",
+    "comment": "Side and top clearance of the relief channel under the lid that lets the ridge pass"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "tab_l",
+    "expression": "5 mm",
+    "comment": "Pull tab: tongue extends this far past the box front, lift it to release the click"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "tab_r",
+    "expression": "2 mm",
+    "comment": "Pull tab corner radius"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "nail_d",
+    "expression": "0.5 mm",
+    "comment": "Nail groove depth across the top of the pull tab"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "nail_r",
     "expression": "1 mm",
-    "comment": "45 deg ramp on the front wall's inner top edge, lets the bump ride up"
+    "comment": "Nail groove radius"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "indent_r",
+    "expression": "15 mm",
+    "comment": "Finger recess in the box front under the tab: radius"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "indent_d",
+    "expression": "1.2 mm",
+    "comment": "Finger recess depth into the front wall"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "indent_h",
+    "expression": "5 mm",
+    "comment": "Finger recess height below the lid underside"
    }
   },
   {
@@ -721,69 +793,6 @@
   {
    "command": "sketch.create",
    "params": {
-    "name": "Sk_Ramp",
-    "plane": "YZ",
-    "offset": "W/2 - tongue_w/2"
-   }
-  },
-  {
-   "command": "sketch.line",
-   "params": {
-    "closed": true,
-    "points": [
-     [
-      "wall - ramp - 0.5 mm",
-      "z_lid + 0.5 mm"
-     ],
-     [
-      "wall + 0.5 mm",
-      "z_lid + 0.5 mm"
-     ],
-     [
-      "wall + 0.5 mm",
-      "z_lid - ramp - 0.5 mm"
-     ]
-    ]
-   }
-  },
-  {
-   "command": "sketch.finish",
-   "params": {}
-  },
-  {
-   "command": "solid.extrude",
-   "params": {
-    "name": "Click_Ramp",
-    "sketch": "Sk_Ramp",
-    "distance": "tongue_w",
-    "profiles": "all",
-    "operation": "cut",
-    "targets": [
-     "Tip_Box"
-    ]
-   }
-  },
-  {
-   "command": "solid.cylinder",
-   "params": {
-    "name": "Click_Notch",
-    "radius": "click_notch_r",
-    "height": "tongue_w - 2 mm",
-    "base": [
-     "W/2 - tongue_w/2 + 1 mm",
-     "wall/2",
-     "z_lid"
-    ],
-    "axis": "X",
-    "operation": "cut",
-    "targets": [
-     "Tip_Box"
-    ]
-   }
-  },
-  {
-   "command": "sketch.create",
-   "params": {
     "name": "Sk_Front_Ch",
     "plane": "YZ",
     "offset": "wall - dov - lid_c + 0.3 mm"
@@ -878,6 +887,42 @@
     "distance": "Wi + 2*(dov + lid_c) + 1 mm",
     "profiles": "all",
     "operation": "join",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Click_Ridge",
+    "radius": "click_r",
+    "height": "click_w",
+    "base": [
+     "W/2 - click_w/2",
+     "click_y",
+     "z_lid"
+    ],
+    "axis": "X",
+    "operation": "join",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Finger_Recess",
+    "radius": "indent_r",
+    "height": "indent_h + 1 mm",
+    "base": [
+     "W/2",
+     "indent_d - indent_r",
+     "z_lid - indent_h"
+    ],
+    "axis": "Z",
+    "operation": "cut",
     "targets": [
      "Tip_Box"
     ]
@@ -1090,17 +1135,38 @@
    }
   },
   {
-   "command": "solid.cylinder",
+   "command": "sketch.create",
    "params": {
-    "name": "Click_Bump",
-    "radius": "click_r",
-    "height": "tongue_w - 4 mm",
-    "base": [
-     "W/2 - tongue_w/2 + 2 mm",
-     "wall/2",
-     "z_lid"
+    "name": "Sk_Tab",
+    "plane": "XY",
+    "offset": "z_lid"
+   }
+  },
+  {
+   "command": "sketch.rectangle.rounded",
+   "params": {
+    "p0": [
+     "W/2 - tongue_w/2",
+     "-tab_l"
     ],
-    "axis": "X",
+    "p1": [
+     "W/2 + tongue_w/2",
+     "3 mm"
+    ],
+    "radius": "tab_r"
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Pull_Tab",
+    "sketch": "Sk_Tab",
+    "distance": "lid_t",
+    "profiles": "all",
     "operation": "join",
     "targets": [
      "Lid"
@@ -1108,27 +1174,11 @@
    }
   },
   {
-   "command": "parameters.add",
-   "params": {
-    "name": "clip_b",
-    "expression": "2*(lid_t - lid_land) + 0.2 mm",
-    "comment": "Lid back corners cut off vertically (45 deg in plan), so no corner edge flatter than 45 deg when printed top down"
-   }
-  },
-  {
-   "command": "parameters.add",
-   "params": {
-    "name": "clip_f",
-    "expression": "(lid_t - lid_land) + lid_ch + 0.2 mm",
-    "comment": "Lid front corners cut off vertically, same reason"
-   }
-  },
-  {
    "command": "sketch.create",
    "params": {
-    "name": "Sk_Lid_Corners",
-    "plane": "XY",
-    "offset": "z_lid - 1 mm"
+    "name": "Sk_Tab_Ch",
+    "plane": "YZ",
+    "offset": "W/2 - tongue_w/2 - 0.5 mm"
    }
   },
   {
@@ -1137,76 +1187,16 @@
     "closed": true,
     "points": [
      [
-      "(wall - dov) + 1*(-0.5 mm)",
-      "0 mm + 1*(clip_f + 0.5 mm)"
+      "-tab_l - 0.5 mm",
+      "z_lid + lid_t - lid_ch - 0.5 mm"
      ],
      [
-      "(wall - dov) + 1*(clip_f + 0.5 mm)",
-      "0 mm + 1*(-0.5 mm)"
+      "-tab_l + lid_ch + 0.5 mm",
+      "z_lid + lid_t + 0.5 mm"
      ],
      [
-      "(wall - dov) + 1*(-0.5 mm)",
-      "0 mm + 1*(-0.5 mm)"
-     ]
-    ]
-   }
-  },
-  {
-   "command": "sketch.line",
-   "params": {
-    "closed": true,
-    "points": [
-     [
-      "(W - wall + dov) + -1*(-0.5 mm)",
-      "0 mm + 1*(clip_f + 0.5 mm)"
-     ],
-     [
-      "(W - wall + dov) + -1*(clip_f + 0.5 mm)",
-      "0 mm + 1*(-0.5 mm)"
-     ],
-     [
-      "(W - wall + dov) + -1*(-0.5 mm)",
-      "0 mm + 1*(-0.5 mm)"
-     ]
-    ]
-   }
-  },
-  {
-   "command": "sketch.line",
-   "params": {
-    "closed": true,
-    "points": [
-     [
-      "(wall - dov) + 1*(-0.5 mm)",
-      "(L - wall + lid_engage - lid_c) + -1*(clip_b + 0.5 mm)"
-     ],
-     [
-      "(wall - dov) + 1*(clip_b + 0.5 mm)",
-      "(L - wall + lid_engage - lid_c) + -1*(-0.5 mm)"
-     ],
-     [
-      "(wall - dov) + 1*(-0.5 mm)",
-      "(L - wall + lid_engage - lid_c) + -1*(-0.5 mm)"
-     ]
-    ]
-   }
-  },
-  {
-   "command": "sketch.line",
-   "params": {
-    "closed": true,
-    "points": [
-     [
-      "(W - wall + dov) + -1*(-0.5 mm)",
-      "(L - wall + lid_engage - lid_c) + -1*(clip_b + 0.5 mm)"
-     ],
-     [
-      "(W - wall + dov) + -1*(clip_b + 0.5 mm)",
-      "(L - wall + lid_engage - lid_c) + -1*(-0.5 mm)"
-     ],
-     [
-      "(W - wall + dov) + -1*(-0.5 mm)",
-      "(L - wall + lid_engage - lid_c) + -1*(-0.5 mm)"
+      "-tab_l - 0.5 mm",
+      "z_lid + lid_t + 0.5 mm"
      ]
     ]
    }
@@ -1218,9 +1208,102 @@
   {
    "command": "solid.extrude",
    "params": {
-    "name": "Lid_Corner_Clips",
-    "sketch": "Sk_Lid_Corners",
-    "distance": "lid_t + 2 mm",
+    "name": "Tab_Chamfer",
+    "sketch": "Sk_Tab_Ch",
+    "distance": "tongue_w + 1 mm",
+    "profiles": "all",
+    "operation": "cut",
+    "targets": [
+     "Lid"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Nail_Groove",
+    "radius": "nail_r",
+    "height": "tongue_w - 2*tab_r",
+    "base": [
+     "W/2 - tongue_w/2 + tab_r",
+     "-tab_l/2",
+     "z_lid + lid_t + nail_r - nail_d"
+    ],
+    "axis": "X",
+    "operation": "cut",
+    "targets": [
+     "Lid"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Click_Groove",
+    "radius": "click_notch_r",
+    "height": "click_w + 2*chan_c",
+    "base": [
+     "W/2 - click_w/2 - chan_c",
+     "click_y",
+     "z_lid"
+    ],
+    "axis": "X",
+    "operation": "cut",
+    "targets": [
+     "Lid"
+    ]
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "name": "Sk_Channel",
+    "plane": "YZ",
+    "offset": "W/2 - click_w/2 - chan_c"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "click_y + click_notch_r + 1.2 mm - 0.5 mm",
+      "z_lid - 0.5 mm"
+     ],
+     [
+      "click_y + click_notch_r + 1.2 mm + click_r + chan_c",
+      "z_lid + click_r + chan_c"
+     ],
+     [
+      "L - wall + lid_engage - lid_c - 1 mm",
+      "z_lid + click_r + chan_c"
+     ],
+     [
+      "L - wall + lid_engage - lid_c - 1 mm",
+      "z_lid + lid_t + 0.5 mm"
+     ],
+     [
+      "L - wall + lid_engage + 1 mm",
+      "z_lid + lid_t + 0.5 mm"
+     ],
+     [
+      "L - wall + lid_engage + 1 mm",
+      "z_lid - 0.5 mm"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Ridge_Channel",
+    "sketch": "Sk_Channel",
+    "distance": "click_w + 2*chan_c",
     "profiles": "all",
     "operation": "cut",
     "targets": [
@@ -1251,9 +1334,9 @@
    "params": {
     "body": "Lid",
     "point": [
-     34,
+     20,
      100,
-     12.6
+     10.1
     ]
    }
   }

@@ -1,0 +1,6 @@
+# SolidCraft lock and backup files
+.~*.lock
+*.bak
+
+# Claude Code local settings
+.claude/

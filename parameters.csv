@@ -1,0 +1,47 @@
+name,unit,expression,value,comment,favorite
+tip_n,,8,8,Number of tips (grooves),false
+tip_d,mm,5 mm,5,T12 shaft diameter,false
+tip_len,mm,157 mm,157,"T12 overall length, connector end to working tip (bent tips included)",false
+ring_d,mm,6 mm,6,Diameter of the two collars on the shaft,false
+ring_y1,mm,86 mm,86,"First collar position, from the connector end",false
+ring_y2,mm,105.5 mm,105.5,"Second collar position, from the connector end",false
+ring_w,mm,4 mm,4,Collar pocket length (generous: collar positions vary between makers),false
+clear,mm,0.45 mm,0.45,Radial clearance round the shaft and collars,false
+groove_d,mm,tip_d + 2*clear,5.9,Tip groove diameter,false
+ring_pd,mm,ring_d + 2*clear,6.9,Collar pocket diameter,false
+pitch,mm,7.4 mm,7.4,Groove spacing (X),false
+edge_m,mm,1 mm,1,Extra side room between the outer grooves and the side walls,false
+end_clear,mm,2 mm,2,Room at each end of the tip,false
+tip_zone,mm,25 mm,25,Working-end zone: open trough to the floor so bent tips (e.g. JL02) fit,false
+bend_h,mm,4 mm,4,"Room for a bent tip from the shaft axis, up and down",false
+wall,mm,4 mm,4,Wall thickness (side walls carry the lid dovetail),false
+base_t,mm,1.6 mm,1.6,Floor thickness under the tip zone,false
+corner_r,mm,3 mm,3,Outer vertical corner radius,false
+foot_ch,mm,0.6 mm,0.6,45 deg chamfer round the box bottom edge (against elephant foot),false
+top_ch,mm,0.8 mm,0.8,45 deg chamfer round the box top outer edge and the front wall top,false
+lid_ch,mm,0.5 mm,0.5,45 deg chamfer on the lid's front and back top edges (the lid's bed side),false
+lid_t,mm,2.5 mm,2.5,Lid thickness,false
+lid_land,mm,0.8 mm,0.8,Vertical land at the lid's long bottom edges before the 45 deg bevel (no knife edge),false
+lid_recess,mm,1 mm,1,Lid top sits this far below the box top,false
+lip_ch,mm,0.5 mm,0.5,45 deg chamfer on the wall's inner top edge above the lid,false
+dov,mm,2 mm,2,Dovetail: how far the lid's lower edge reaches into each side wall,false
+lid_c,mm,0.3 mm,0.3,Lid sliding clearance,false
+lid_engage,mm,1 mm,1,Lid end tucks this far into the back wall,false
+tongue_l,mm,22 mm,22,Click tongue length,false
+slot_w,mm,1.2 mm,1.2,Width of the slots either side of the tongue,false
+click_r,mm,0.6 mm,0.6,Click bump radius (under the tongue),false
+click_notch_r,mm,click_r + 0.15 mm,0.75,Click notch radius in the front wall top,false
+ramp,mm,1 mm,1,"45 deg ramp on the front wall's inner top edge, lets the bump ride up",false
+scoop_r,mm,8 mm,8,Finger scoop radius across the bed,false
+scoop_d,mm,3 mm,3,Finger scoop depth below the bed top,false
+scoop_y,mm,35 mm,35,Finger scoop position from the connector end,false
+Wi,mm,tip_n*pitch + 2*edge_m,61.2,Inner width,false
+Li,mm,tip_len + 2*end_clear,161,Inner length,false
+W,mm,Wi + 2*wall,69.2,Outer width (X),false
+L,mm,Li + 2*wall,169,Outer length (Y),false
+z_axis,mm,base_t + bend_h,5.6,Height of the tip axes = bed top,false
+z_lid,mm,"z_axis + max(bend_h, ring_pd/2) + 0.5 mm",10.1,Lid underside,false
+H,mm,z_lid + lid_t + lid_recess,13.6,Overall height (lid top lid_recess below the wall tops),false
+x0,mm,wall + edge_m + pitch/2,8.7,X of the first groove,false
+y0,mm,wall + end_clear,6,Y of the tip connector end,false
+tongue_w,mm,"min(16 mm, Wi/2)",16,"Click tongue width (flexible strip at the lid front), at most half the inner width",false

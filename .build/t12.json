@@ -1,0 +1,1083 @@
+{
+ "commands": [
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "tip_n",
+    "expression": "8",
+    "unit": "",
+    "comment": "Number of tips (grooves)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "tip_d",
+    "expression": "5 mm",
+    "comment": "T12 shaft diameter"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "tip_len",
+    "expression": "157 mm",
+    "comment": "T12 overall length, connector end to working tip (bent tips included)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ring_d",
+    "expression": "6 mm",
+    "comment": "Diameter of the two collars on the shaft"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ring_y1",
+    "expression": "86 mm",
+    "comment": "First collar position, from the connector end"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ring_y2",
+    "expression": "105.5 mm",
+    "comment": "Second collar position, from the connector end"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ring_w",
+    "expression": "4 mm",
+    "comment": "Collar pocket length (generous: collar positions vary between makers)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "clear",
+    "expression": "0.45 mm",
+    "comment": "Radial clearance round the shaft and collars"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "groove_d",
+    "expression": "tip_d + 2*clear",
+    "comment": "Tip groove diameter"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ring_pd",
+    "expression": "ring_d + 2*clear",
+    "comment": "Collar pocket diameter"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "pitch",
+    "expression": "7.4 mm",
+    "comment": "Groove spacing (X)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "edge_m",
+    "expression": "1 mm",
+    "comment": "Extra side room between the outer grooves and the side walls"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "end_clear",
+    "expression": "2 mm",
+    "comment": "Room at each end of the tip"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "tip_zone",
+    "expression": "25 mm",
+    "comment": "Working-end zone: open trough to the floor so bent tips (e.g. JL02) fit"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "bend_h",
+    "expression": "4 mm",
+    "comment": "Room for a bent tip from the shaft axis, up and down"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "wall",
+    "expression": "4 mm",
+    "comment": "Wall thickness (side walls carry the lid dovetail)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "base_t",
+    "expression": "1.6 mm",
+    "comment": "Floor thickness under the tip zone"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "corner_r",
+    "expression": "3 mm",
+    "comment": "Outer vertical corner radius"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "foot_ch",
+    "expression": "0.6 mm",
+    "comment": "45 deg chamfer round the box bottom edge (against elephant foot)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "top_ch",
+    "expression": "0.8 mm",
+    "comment": "45 deg chamfer round the box top outer edge and the front wall top"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "lid_ch",
+    "expression": "0.5 mm",
+    "comment": "45 deg chamfer on the lid's front and back top edges (the lid's bed side)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "lid_t",
+    "expression": "2.5 mm",
+    "comment": "Lid thickness"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "lid_land",
+    "expression": "0.8 mm",
+    "comment": "Vertical land at the lid's long bottom edges before the 45 deg bevel (no knife edge)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "lid_recess",
+    "expression": "1 mm",
+    "comment": "Lid top sits this far below the box top"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "lip_ch",
+    "expression": "0.5 mm",
+    "comment": "45 deg chamfer on the wall's inner top edge above the lid"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "dov",
+    "expression": "2 mm",
+    "comment": "Dovetail: how far the lid's lower edge reaches into each side wall"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "lid_c",
+    "expression": "0.3 mm",
+    "comment": "Lid sliding clearance"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "lid_engage",
+    "expression": "1 mm",
+    "comment": "Lid end tucks this far into the back wall"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "tongue_l",
+    "expression": "22 mm",
+    "comment": "Click tongue length"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "slot_w",
+    "expression": "1.2 mm",
+    "comment": "Width of the slots either side of the tongue"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "click_r",
+    "expression": "0.6 mm",
+    "comment": "Click bump radius (under the tongue)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "click_notch_r",
+    "expression": "click_r + 0.15 mm",
+    "comment": "Click notch radius in the front wall top"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "ramp",
+    "expression": "1 mm",
+    "comment": "45 deg ramp on the front wall's inner top edge, lets the bump ride up"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "scoop_r",
+    "expression": "8 mm",
+    "comment": "Finger scoop radius across the bed"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "scoop_d",
+    "expression": "3 mm",
+    "comment": "Finger scoop depth below the bed top"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "scoop_y",
+    "expression": "35 mm",
+    "comment": "Finger scoop position from the connector end"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "Wi",
+    "expression": "tip_n*pitch + 2*edge_m",
+    "comment": "Inner width"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "Li",
+    "expression": "tip_len + 2*end_clear",
+    "comment": "Inner length"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "W",
+    "expression": "Wi + 2*wall",
+    "comment": "Outer width (X)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "L",
+    "expression": "Li + 2*wall",
+    "comment": "Outer length (Y)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "z_axis",
+    "expression": "base_t + bend_h",
+    "comment": "Height of the tip axes = bed top"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "z_lid",
+    "expression": "z_axis + max(bend_h, ring_pd/2) + 0.5 mm",
+    "comment": "Lid underside"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "H",
+    "expression": "z_lid + lid_t + lid_recess",
+    "comment": "Overall height (lid top lid_recess below the wall tops)"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "x0",
+    "expression": "wall + edge_m + pitch/2",
+    "comment": "X of the first groove"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "y0",
+    "expression": "wall + end_clear",
+    "comment": "Y of the tip connector end"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "tongue_w",
+    "expression": "min(16 mm, Wi/2)",
+    "comment": "Click tongue width (flexible strip at the lid front), at most half the inner width"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "name": "Sk_Outline_Foot",
+    "plane": "XY"
+   }
+  },
+  {
+   "command": "sketch.rectangle.rounded",
+   "params": {
+    "p0": [
+     "foot_ch",
+     "foot_ch"
+    ],
+    "p1": [
+     "W - foot_ch",
+     "L - foot_ch"
+    ],
+    "radius": "corner_r - foot_ch"
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Box_Foot_Chamfer",
+    "sketch": "Sk_Outline_Foot",
+    "distance": "foot_ch",
+    "taper": "45 deg",
+    "profiles": "all",
+    "operation": "new",
+    "body_name": "Tip_Box"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "name": "Sk_Outline",
+    "plane": "XY",
+    "offset": "foot_ch"
+   }
+  },
+  {
+   "command": "sketch.rectangle.rounded",
+   "params": {
+    "p0": [
+     0,
+     0
+    ],
+    "p1": [
+     "W",
+     "L"
+    ],
+    "radius": "corner_r"
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Box_Block",
+    "sketch": "Sk_Outline",
+    "distance": "H - foot_ch - top_ch",
+    "profiles": "all",
+    "operation": "join",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "name": "Sk_Outline_Top",
+    "plane": "XY",
+    "offset": "H - top_ch"
+   }
+  },
+  {
+   "command": "sketch.rectangle.rounded",
+   "params": {
+    "p0": [
+     0,
+     0
+    ],
+    "p1": [
+     "W",
+     "L"
+    ],
+    "radius": "corner_r"
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Box_Top_Chamfer",
+    "sketch": "Sk_Outline_Top",
+    "distance": "top_ch",
+    "taper": "-45 deg",
+    "profiles": "all",
+    "operation": "join",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "name": "Cavity",
+    "length": "Wi",
+    "width": "Li",
+    "height": "H",
+    "corner": [
+     "wall",
+     "wall",
+     "base_t"
+    ],
+    "operation": "cut",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "name": "Bed",
+    "length": "Wi + 1 mm",
+    "width": "Li - tip_zone + 0.5 mm",
+    "height": "z_axis - base_t + 0.5 mm",
+    "corner": [
+     "wall - 0.5 mm",
+     "wall - 0.5 mm",
+     "base_t - 0.5 mm"
+    ],
+    "operation": "join",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Groove",
+    "radius": "groove_d/2",
+    "height": "Li - tip_zone - end_clear/2 + 1 mm",
+    "base": [
+     "x0",
+     "wall + end_clear/2",
+     "z_axis"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Ring_Pocket1",
+    "radius": "ring_pd/2",
+    "height": "ring_w",
+    "base": [
+     "x0",
+     "y0 + ring_y1 - ring_w/2",
+     "z_axis"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Ring_Pocket2",
+    "radius": "ring_pd/2",
+    "height": "ring_w",
+    "base": [
+     "x0",
+     "y0 + ring_y2 - ring_w/2",
+     "z_axis"
+    ],
+    "axis": "Y",
+    "operation": "cut",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "solid.pattern.rectangular",
+   "params": {
+    "name": "Groove_Pattern",
+    "features": [
+     "Groove",
+     "Ring_Pocket1",
+     "Ring_Pocket2"
+    ],
+    "dir1": [
+     1,
+     0,
+     0
+    ],
+    "count1": "tip_n",
+    "spacing1": "pitch"
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Finger_Scoop",
+    "radius": "scoop_r",
+    "height": "Wi - 1 mm",
+    "base": [
+     "wall + 0.5 mm",
+     "y0 + scoop_y",
+     "z_axis + scoop_r - scoop_d"
+    ],
+    "axis": "X",
+    "operation": "cut",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "name": "Sk_Dovetail",
+    "plane": {
+     "origin": [
+      0,
+      -1,
+      0
+     ],
+     "x_dir": [
+      1,
+      0,
+      0
+     ],
+     "y_dir": [
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "wall - dov - lid_c",
+      "z_lid"
+     ],
+     [
+      "W - wall + dov + lid_c",
+      "z_lid"
+     ],
+     [
+      "W - wall + dov + lid_c",
+      "z_lid + lid_land"
+     ],
+     [
+      "W - wall + dov - lid_t + lid_land",
+      "z_lid + lid_t + lid_c"
+     ],
+     [
+      "W - wall + dov - lid_t + lid_land",
+      "H - lip_ch"
+     ],
+     [
+      "W - wall + dov - lid_t + lid_land + lip_ch + 1 mm",
+      "H + 1 mm"
+     ],
+     [
+      "wall - dov + lid_t - lid_land - lip_ch - 1 mm",
+      "H + 1 mm"
+     ],
+     [
+      "wall - dov + lid_t - lid_land",
+      "H - lip_ch"
+     ],
+     [
+      "wall - dov + lid_t - lid_land",
+      "z_lid + lid_t + lid_c"
+     ],
+     [
+      "wall - dov - lid_c",
+      "z_lid + lid_land"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Dovetail_Way",
+    "sketch": "Sk_Dovetail",
+    "distance": "L - wall + lid_engage + 1 mm",
+    "direction": "negative",
+    "profiles": "all",
+    "operation": "cut",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "name": "Front_Opening",
+    "length": "Wi",
+    "width": "wall + 1.5 mm",
+    "height": "H",
+    "corner": [
+     "wall",
+     -1,
+     "z_lid"
+    ],
+    "operation": "cut",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "name": "Sk_Ramp",
+    "plane": "YZ",
+    "offset": "W/2 - tongue_w/2"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "wall - ramp - 0.5 mm",
+      "z_lid + 0.5 mm"
+     ],
+     [
+      "wall + 0.5 mm",
+      "z_lid + 0.5 mm"
+     ],
+     [
+      "wall + 0.5 mm",
+      "z_lid - ramp - 0.5 mm"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Click_Ramp",
+    "sketch": "Sk_Ramp",
+    "distance": "tongue_w",
+    "profiles": "all",
+    "operation": "cut",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Click_Notch",
+    "radius": "click_notch_r",
+    "height": "tongue_w - 2 mm",
+    "base": [
+     "W/2 - tongue_w/2 + 1 mm",
+     "wall/2",
+     "z_lid"
+    ],
+    "axis": "X",
+    "operation": "cut",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "name": "Sk_Front_Ch",
+    "plane": "YZ",
+    "offset": "wall - dov - lid_c + 0.3 mm"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "-0.5 mm",
+      "z_lid - top_ch - 0.5 mm"
+     ],
+     [
+      "top_ch + 0.5 mm",
+      "z_lid + 0.5 mm"
+     ],
+     [
+      "-0.5 mm",
+      "z_lid + 0.5 mm"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Front_Edge_Chamfer",
+    "sketch": "Sk_Front_Ch",
+    "distance": "Wi + 2*(dov + lid_c) - 0.6 mm",
+    "profiles": "all",
+    "operation": "cut",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "name": "Sk_Lid",
+    "plane": {
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "x_dir": [
+      1,
+      0,
+      0
+     ],
+     "y_dir": [
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "wall - dov",
+      "z_lid"
+     ],
+     [
+      "W - wall + dov",
+      "z_lid"
+     ],
+     [
+      "W - wall + dov",
+      "z_lid + lid_land"
+     ],
+     [
+      "W - wall + dov - lid_t + lid_land",
+      "z_lid + lid_t"
+     ],
+     [
+      "wall - dov + lid_t - lid_land",
+      "z_lid + lid_t"
+     ],
+     [
+      "wall - dov",
+      "z_lid + lid_land"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Lid_Plate",
+    "sketch": "Sk_Lid",
+    "distance": "L - wall + lid_engage - lid_c",
+    "direction": "negative",
+    "profiles": "all",
+    "operation": "new",
+    "body_name": "Lid"
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "name": "Tongue_Slot_L",
+    "length": "slot_w",
+    "width": "tongue_l + 1 mm",
+    "height": "lid_t + 2 mm",
+    "corner": [
+     "W/2 - tongue_w/2 - slot_w",
+     -1,
+     "z_lid - 1 mm"
+    ],
+    "operation": "cut",
+    "targets": [
+     "Lid"
+    ]
+   }
+  },
+  {
+   "command": "solid.box",
+   "params": {
+    "name": "Tongue_Slot_R",
+    "length": "slot_w",
+    "width": "tongue_l + 1 mm",
+    "height": "lid_t + 2 mm",
+    "corner": [
+     "W/2 + tongue_w/2",
+     -1,
+     "z_lid - 1 mm"
+    ],
+    "operation": "cut",
+    "targets": [
+     "Lid"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Tongue_Root_L",
+    "radius": "slot_w/2",
+    "height": "lid_t + 2 mm",
+    "base": [
+     "W/2 - tongue_w/2 - slot_w/2",
+     "tongue_l",
+     "z_lid - 1 mm"
+    ],
+    "operation": "cut",
+    "targets": [
+     "Lid"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Tongue_Root_R",
+    "radius": "slot_w/2",
+    "height": "lid_t + 2 mm",
+    "base": [
+     "W/2 + tongue_w/2 + slot_w/2",
+     "tongue_l",
+     "z_lid - 1 mm"
+    ],
+    "operation": "cut",
+    "targets": [
+     "Lid"
+    ]
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "name": "Sk_Lid_Ch",
+    "plane": "YZ",
+    "offset": "-1 mm"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "-0.5 mm",
+      "z_lid + lid_t - lid_ch - 0.5 mm"
+     ],
+     [
+      "lid_ch + 0.5 mm",
+      "z_lid + lid_t + 0.5 mm"
+     ],
+     [
+      "-0.5 mm",
+      "z_lid + lid_t + 0.5 mm"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "L - wall + lid_engage - lid_c + 0.5 mm",
+      "z_lid + lid_t - lid_ch - 0.5 mm"
+     ],
+     [
+      "L - wall + lid_engage - lid_c + 0.5 mm",
+      "z_lid + lid_t + 0.5 mm"
+     ],
+     [
+      "L - wall + lid_engage - lid_c - lid_ch - 0.5 mm",
+      "z_lid + lid_t + 0.5 mm"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Lid_End_Chamfers",
+    "sketch": "Sk_Lid_Ch",
+    "distance": "W + 2 mm",
+    "profiles": "all",
+    "operation": "cut",
+    "targets": [
+     "Lid"
+    ]
+   }
+  },
+  {
+   "command": "solid.cylinder",
+   "params": {
+    "name": "Click_Bump",
+    "radius": "click_r",
+    "height": "tongue_w - 4 mm",
+    "base": [
+     "W/2 - tongue_w/2 + 2 mm",
+     "wall/2",
+     "z_lid"
+    ],
+    "axis": "X",
+    "operation": "join",
+    "targets": [
+     "Lid"
+    ]
+   }
+  },
+  {
+   "command": "appearance.assign",
+   "params": {
+    "bodies": [
+     "Tip_Box"
+    ],
+    "color": "#d9d9d9"
+   }
+  },
+  {
+   "command": "appearance.assign",
+   "params": {
+    "bodies": [
+     "Lid"
+    ],
+    "color": "#4f8fd6"
+   }
+  },
+  {
+   "command": "body.print_face",
+   "params": {
+    "body": "Lid",
+    "point": [
+     34,
+     100,
+     12.6
+    ]
+   }
+  }
+ ]
+}

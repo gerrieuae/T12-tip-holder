@@ -1,0 +1,4 @@
+I want a parametric version of the T12 Solder top as shown in the step file in the directory, we can just use the
+  idea how the tips are stored, like a pencil holder. The dimentions of the tip is on the internet.
+  Take into account that the tips itself can be a bend type. The amount of tips must be configurable. Place the files in a new directory
+  c:\Users\gerri\SolidcraftDesigns\t12TipHolder. I want a sliding lid that clicks when closed. I must be printable without support.

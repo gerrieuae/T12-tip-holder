@@ -26,7 +26,7 @@ lid_recess,mm,1 mm,1,Lid top sits this far below the box top,false
 lip_ch,mm,0.5 mm,0.5,45 deg chamfer on the wall's inner top edge above the lid,false
 dov,mm,2 mm,2,Dovetail: how far the lid's lower edge reaches into each side wall,false
 lid_c,mm,0.3 mm,0.3,Lid sliding clearance,false
-lid_engage,mm,1 mm,1,Lid end tucks this far into the back wall,false
+lid_engage,mm,2.3 mm,2.3,"Lid end tucks this far into the back wall (bottom edge), under a 45 deg lip",false
 tongue_l,mm,22 mm,22,Click tongue length,false
 slot_w,mm,1.2 mm,1.2,Width of the slots either side of the tongue,false
 click_r,mm,0.6 mm,0.6,Click bump radius (under the tongue),false

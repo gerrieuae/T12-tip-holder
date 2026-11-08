@@ -27,9 +27,9 @@ The idea comes from `solderingTipT12.step`, a Gridfinity 4×1 bin for 5 tips: gr
 - **Tips:** each tip lies in a half-depth groove (`tip_d` + 2·`clear` = Ø5.9), with the connector end at the front. The two collars sit in wider pockets (`ring_pd` Ø6.9, `ring_w` 4 mm long).
 - **Bent tips:** the last `tip_zone` (25 mm) at the working end is an open trough down to the floor. `bend_h` (4 mm) is free above and below the shaft axis, so bent tips like the JL02 fit with the bend pointing up or down. Sideways bends may touch the next tip.
 - **Finger scoop:** a shallow scoop across the bed near the connector ends lets you get a finger under a tip.
-- **Sliding lid:** the lid (2.5 mm, `lid_t`) has dovetail edges: a 0.8 mm vertical land (`lid_land`, so no knife edge), then a 45° bevel. They run in matching ways in the side walls (0.3 mm clearance, `lid_c`). The lid top sits 1 mm below the box top (`lid_recess`), so the wall lip over it is solid. It slides in from the front, which is cut down to the ways, and its far end tucks 1 mm into the back wall.
+- **Sliding lid:** the lid (2.5 mm, `lid_t`) has dovetail edges: a 0.8 mm vertical land (`lid_land`, so no knife edge), then a 45° bevel. They run in matching ways in the side walls (0.3 mm clearance, `lid_c`). The lid top sits 1 mm below the box top (`lid_recess`), so the wall lip over it is solid. It slides in from the front, which is cut down to the ways. Its leading end has the same land and 45° bevel as the long edges, so it eases into the ways, and it tucks 2.3 mm (`lid_engage`) under a matching 45° lip in the back wall.
 - **Click:** two slots in the lid's front end make a flexible tongue (`tongue_w` × `tongue_l`). A Ø1.2 bump under the tongue rides up a 45° ramp on the front wall and drops into a notch in the wall top when the lid is closed.
-- **Edges for printing:** 45° chamfers on the box bottom edge (`foot_ch` 0.6, against elephant foot), the box top outer edge and the front wall top (`top_ch` 0.8), the wall's inner top edge above the lid (`lip_ch` 0.5), and the lid's front and back top edges, which are its bed side (`lid_ch` 0.5). The outer vertical corners have a 3 mm radius (`corner_r`), and the slot roots by the tongue are rounded. Tuned for a Bambu Lab P1S.
+- **Edges for printing:** 45° chamfers on the box bottom edge (`foot_ch` 0.6, against elephant foot), the box top outer edge and the front wall top (`top_ch` 0.8), the wall's inner top edge above the lid (`lip_ch` 0.5), and the lid's front top edge, which is on its bed side (`lid_ch` 0.5). The outer vertical corners have a 3 mm radius (`corner_r`), and the slot roots by the tongue are rounded. Tuned for a Bambu Lab P1S.
 
 ## Printing
 
@@ -55,7 +55,7 @@ Open `T12_Tip_Holder.sc` and change the parameters. The main ones are:
 | `tip_zone`, `bend_h` | 25 / 4 mm | Bent-tip zone length and room |
 | `wall`, `lid_t`, `lid_c` | 4 / 2.5 / 0.3 mm | Wall, lid thickness, lid clearance |
 | `lid_land`, `lid_recess`, `lip_ch` | 0.8 / 1 / 0.5 mm | Lid edge land, lid depth below the box top, chamfer on the wall's inner top edge |
-| `foot_ch`, `top_ch`, `lid_ch` | 0.6 / 0.8 / 0.5 mm | Print chamfers: box bottom, box top and front wall top, lid ends |
+| `foot_ch`, `top_ch`, `lid_ch` | 0.6 / 0.8 / 0.5 mm | Print chamfers: box bottom, box top and front wall top, lid front end |
 | `click_r`, `tongue_w`, `tongue_l` | 0.6 / min(16, Wi/2) / 22 mm | Click strength and tongue size |
 
 **Tip dimensions:** `tip_d`, `tip_len` and the collar positions come from the reference bin and from common T12 figures (about Ø5 shaft, about 155–157 mm long). They vary between makers, so measure one of your tips and adjust them before printing.

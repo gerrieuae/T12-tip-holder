@@ -221,8 +221,8 @@
    "command": "parameters.add",
    "params": {
     "name": "lid_engage",
-    "expression": "1 mm",
-    "comment": "Lid end tucks this far into the back wall"
+    "expression": "2.3 mm",
+    "comment": "Lid end tucks this far into the back wall (bottom edge), under a 45 deg lip"
    }
   },
   {
@@ -829,6 +829,63 @@
   {
    "command": "sketch.create",
    "params": {
+    "name": "Sk_Back_Lip",
+    "plane": "YZ",
+    "offset": "wall - dov - lid_c - 0.5 mm"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "L - wall + lid_engage",
+      "z_lid + lid_land"
+     ],
+     [
+      "L - wall + lid_engage + 0.5 mm",
+      "z_lid + lid_land"
+     ],
+     [
+      "L - wall + lid_engage + 0.5 mm",
+      "H"
+     ],
+     [
+      "L - wall + lid_engage - (lid_t - lid_land) - lid_c",
+      "H"
+     ],
+     [
+      "L - wall + lid_engage - (lid_t - lid_land) - lid_c",
+      "z_lid + lid_t + lid_c"
+     ],
+     [
+      "L - wall + lid_engage - (lid_t - lid_land)",
+      "z_lid + lid_t"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Back_Lip",
+    "sketch": "Sk_Back_Lip",
+    "distance": "Wi + 2*(dov + lid_c) + 1 mm",
+    "profiles": "all",
+    "operation": "join",
+    "targets": [
+     "Tip_Box"
+    ]
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
     "name": "Sk_Lid",
     "plane": {
      "origin": [
@@ -1002,14 +1059,14 @@
     "points": [
      [
       "L - wall + lid_engage - lid_c + 0.5 mm",
-      "z_lid + lid_t - lid_ch - 0.5 mm"
+      "z_lid + lid_land - 0.5 mm"
      ],
      [
       "L - wall + lid_engage - lid_c + 0.5 mm",
       "z_lid + lid_t + 0.5 mm"
      ],
      [
-      "L - wall + lid_engage - lid_c - lid_ch - 0.5 mm",
+      "L - wall + lid_engage - lid_c - (lid_t - lid_land) - 0.5 mm",
       "z_lid + lid_t + 0.5 mm"
      ]
     ]
@@ -1022,7 +1079,7 @@
   {
    "command": "solid.extrude",
    "params": {
-    "name": "Lid_End_Chamfers",
+    "name": "Lid_End_Bevels",
     "sketch": "Sk_Lid_Ch",
     "distance": "W + 2 mm",
     "profiles": "all",
@@ -1045,6 +1102,127 @@
     ],
     "axis": "X",
     "operation": "join",
+    "targets": [
+     "Lid"
+    ]
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "clip_b",
+    "expression": "2*(lid_t - lid_land) + 0.2 mm",
+    "comment": "Lid back corners cut off vertically (45 deg in plan), so no corner edge flatter than 45 deg when printed top down"
+   }
+  },
+  {
+   "command": "parameters.add",
+   "params": {
+    "name": "clip_f",
+    "expression": "(lid_t - lid_land) + lid_ch + 0.2 mm",
+    "comment": "Lid front corners cut off vertically, same reason"
+   }
+  },
+  {
+   "command": "sketch.create",
+   "params": {
+    "name": "Sk_Lid_Corners",
+    "plane": "XY",
+    "offset": "z_lid - 1 mm"
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "(wall - dov) + 1*(-0.5 mm)",
+      "0 mm + 1*(clip_f + 0.5 mm)"
+     ],
+     [
+      "(wall - dov) + 1*(clip_f + 0.5 mm)",
+      "0 mm + 1*(-0.5 mm)"
+     ],
+     [
+      "(wall - dov) + 1*(-0.5 mm)",
+      "0 mm + 1*(-0.5 mm)"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "(W - wall + dov) + -1*(-0.5 mm)",
+      "0 mm + 1*(clip_f + 0.5 mm)"
+     ],
+     [
+      "(W - wall + dov) + -1*(clip_f + 0.5 mm)",
+      "0 mm + 1*(-0.5 mm)"
+     ],
+     [
+      "(W - wall + dov) + -1*(-0.5 mm)",
+      "0 mm + 1*(-0.5 mm)"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "(wall - dov) + 1*(-0.5 mm)",
+      "(L - wall + lid_engage - lid_c) + -1*(clip_b + 0.5 mm)"
+     ],
+     [
+      "(wall - dov) + 1*(clip_b + 0.5 mm)",
+      "(L - wall + lid_engage - lid_c) + -1*(-0.5 mm)"
+     ],
+     [
+      "(wall - dov) + 1*(-0.5 mm)",
+      "(L - wall + lid_engage - lid_c) + -1*(-0.5 mm)"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.line",
+   "params": {
+    "closed": true,
+    "points": [
+     [
+      "(W - wall + dov) + -1*(-0.5 mm)",
+      "(L - wall + lid_engage - lid_c) + -1*(clip_b + 0.5 mm)"
+     ],
+     [
+      "(W - wall + dov) + -1*(clip_b + 0.5 mm)",
+      "(L - wall + lid_engage - lid_c) + -1*(-0.5 mm)"
+     ],
+     [
+      "(W - wall + dov) + -1*(-0.5 mm)",
+      "(L - wall + lid_engage - lid_c) + -1*(-0.5 mm)"
+     ]
+    ]
+   }
+  },
+  {
+   "command": "sketch.finish",
+   "params": {}
+  },
+  {
+   "command": "solid.extrude",
+   "params": {
+    "name": "Lid_Corner_Clips",
+    "sketch": "Sk_Lid_Corners",
+    "distance": "lid_t + 2 mm",
+    "profiles": "all",
+    "operation": "cut",
     "targets": [
      "Lid"
     ]
